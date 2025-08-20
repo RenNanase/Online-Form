@@ -852,11 +852,9 @@
                     address: formData.get('address')
                 };
                 
-                // Only include email if it's provided and valid
+                // Always include email field, but send empty string if not provided
                 const email = formData.get('email');
-                if (email && email.trim() !== '') {
-                    data.email = email;
-                }
+                data.email = email && email.trim() !== '' ? email : '';
 
                 console.log('Sending data:', data); // Debug log
                 
@@ -872,11 +870,32 @@
                 if (!response.ok) {
                     let errorMessage = `Server error (${response.status})`;
                     try {
-                        const errorData = await response.text();
+                        const errorData = await response.json();
                         console.log('Error response:', errorData);
-                        errorMessage += `: ${errorData}`;
+                        
+                        // Handle specific validation errors
+                        if (errorData.errors) {
+                            const errors = [];
+                            if (errorData.errors.nrid) {
+                                errors.push('NRIC: ' + errorData.errors.nrid.join(', '));
+                            }
+                            if (errorData.errors.email) {
+                                errors.push('Email: ' + errorData.errors.email.join(', '));
+                            }
+                            if (errorData.errors.phonenumber) {
+                                errors.push('Phone: ' + errorData.errors.phonenumber.join(', '));
+                            }
+                            if (errors.length > 0) {
+                                errorMessage = 'Validation errors:\n' + errors.join('\n');
+                            } else {
+                                errorMessage = errorData.message || 'Server validation error';
+                            }
+                        } else {
+                            errorMessage = errorData.message || errorMessage;
+                        }
                     } catch (e) {
                         console.log('Could not parse error response');
+                        errorMessage += ': Unable to parse server response';
                     }
                     throw new Error(errorMessage);
                 }
