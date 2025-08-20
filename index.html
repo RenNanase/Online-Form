@@ -496,8 +496,8 @@
                         <h2 class="text-2xl font-bold text-jmc-dark-gray mb-6 text-center">Contact Information</h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="input-group">
-                                <input type="email" name="email" class="input-field" placeholder=" ">
-                                <label class="input-label">Email Address (Optional)</label>
+                                <input type="email" name="email" class="input-field" placeholder=" " required>
+                                <label class="input-label">Email Address</label>
                             </div>
                             <div class="input-group">
                                 <input type="tel" name="phone" class="input-field" placeholder=" " required>
@@ -852,9 +852,8 @@
                     address: formData.get('address')
                 };
                 
-                // Always include email field, but send empty string if not provided
-                const email = formData.get('email');
-                data.email = email && email.trim() !== '' ? email : '';
+                // Email is now required, so we always send the actual email value
+                data.email = formData.get('email');
 
                 console.log('Sending data:', data); // Debug log
                 
