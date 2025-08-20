@@ -13,8 +13,8 @@
                     colors: {
                         'jmc-blue': '#024059',
                         'jmc-light-blue': '#E8E6EB',
-                        'jmc-green': '#024059',
-                        'jmc-light-green': '#E8E6EB',
+                        'jmc-green': '#22c55e',
+                        'jmc-light-green': '#dcfce7',
                         'jmc-gray': '#f8fafc',
                         'jmc-dark-gray': '#024059',
                     },
@@ -148,7 +148,7 @@
         }
         
         .step.active {
-            background: #024059;
+            background: #ecd1ee;
             color: white;
             transform: scale(1.1);
         }
@@ -171,7 +171,7 @@
         }
         
         .step.completed:not(:last-child)::after {
-            background: #024059;
+            background: #dfbadf;
         }
         
         .form-section {
@@ -361,7 +361,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="input-group">
                                 <input type="text" name="fullName" class="input-field" placeholder=" " required>
-                                <label class="input-label">Full Name (as per MyKad/MyPR)</label>
+                                <label class="input-label">Full Name (as per MyKad/MyPR/Passport)</label>
                             </div>
                             <div class="input-group">
                                 <input type="text" name="nationalityId" class="input-field" placeholder=" " required>
@@ -444,17 +444,11 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                     </svg>
                 </div>
-                <div class="flex justify-center space-x-4 mb-4">
-                    <span class="text-3xl animate-bounce" style="animation-delay: 0s;">🎉</span>
-                    <span class="text-3xl animate-bounce" style="animation-delay: 0.1s;">✨</span>
-                    <span class="text-3xl animate-bounce" style="animation-delay: 0.2s;">🎊</span>
-                    <span class="text-3xl animate-bounce" style="animation-delay: 0.3s;">⭐</span>
-                </div>
             </div>
             
             <h1 class="text-3xl font-bold text-jmc-green mb-4">Registration Successful!</h1>
-            <p class="text-xl text-gray-700 mb-2">Welcome to the JMC Senior Care family! ✨</p>
-            <p class="text-gray-600 mb-8">Thank you for trusting us with your care. Our team will contact you shortly to discuss your personalized care plan.</p>
+            <p class="text-xl text-gray-700 mb-2">Welcome to the JMC Senior Care family!</p>
+            <p class="text-gray-600 mb-8 font-medium">Please note: Membership benefits will be activated and available starting the next day after registration.</p>
             
             <!-- Registration Details -->
             <div id="successDetails" class="bg-gradient-to-br from-jmc-light-blue to-jmc-light-green rounded-2xl p-6">
