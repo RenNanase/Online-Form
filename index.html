@@ -81,6 +81,8 @@
             color: #024059;
             background: white;
             padding: 0 8px;
+            z-index: 1;
+            border-radius: 4px;
         }
         
         select.input-field {
@@ -259,6 +261,8 @@
             .terms-modal {
                 max-height: 50vh;
                 flex-grow: 1;
+                font-size: 0.875rem;
+                line-height: 1.5;
             }
             
             .modal-header {
@@ -273,6 +277,55 @@
             
             .modal-header h3 {
                 font-size: 1.25rem !important;
+            }
+            
+            /* Terms content mobile formatting */
+            .terms-modal h4 {
+                font-size: 1rem !important;
+                margin-bottom: 0.75rem !important;
+                line-height: 1.4;
+            }
+            
+            .terms-modal p {
+                font-size: 0.875rem !important;
+                margin-bottom: 1rem !important;
+                line-height: 1.5;
+                text-align: justify;
+            }
+            
+            .terms-modal ul {
+                font-size: 0.875rem !important;
+                line-height: 1.5;
+                margin-left: 0.5rem !important;
+            }
+            
+            .terms-modal li {
+                margin-bottom: 0.5rem;
+                padding-right: 0.25rem;
+                text-align: justify;
+            }
+            
+            /* Input field mobile adjustments */
+            .input-label {
+                font-size: 0.75rem !important;
+                padding: 0 6px !important;
+            }
+            
+            .input-field {
+                font-size: 0.875rem !important;
+                padding: 0.875rem 1rem !important;
+            }
+            
+            /* Form headers mobile */
+            .form-section h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            /* Step indicator mobile */
+            .step {
+                width: 35px !important;
+                height: 35px !important;
+                font-size: 0.875rem !important;
             }
         }
     </style>
@@ -390,11 +443,11 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="input-group">
                                 <input type="text" name="fullName" class="input-field" placeholder=" " required>
-                                <label class="input-label">Full Name (as per MyKad/MyPR/Passport)</label>
+                                <label class="input-label"><span class="hidden md:inline">Full Name (as per MyKad/MyPR/Passport)</span><span class="md:hidden">Full Name</span></label>
                             </div>
                             <div class="input-group">
                                 <input type="text" name="nationalityId" class="input-field" placeholder=" " required>
-                                <label class="input-label">ID Number (YYMMDDPBXXXX)</label>
+                                <label class="input-label"><span class="hidden md:inline">ID Number (YYMMDDPBXXXX)</span><span class="md:hidden">ID Number</span></label>
                             </div>
                             <div class="input-group">
                                 <input type="date" name="dateOfBirth" class="input-field" required>
