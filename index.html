@@ -225,7 +225,7 @@
         }
 
         .terms-modal {
-            max-height: 80vh;
+            max-height: 60vh;
             overflow-y: auto;
         }
         
@@ -246,6 +246,35 @@
         .terms-modal::-webkit-scrollbar-thumb:hover {
             background: #1d4ed8;
         }
+        
+        /* Mobile responsive modal adjustments */
+        @media (max-width: 768px) {
+            .modal-container {
+                margin: 1rem;
+                max-height: 90vh;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .terms-modal {
+                max-height: 50vh;
+                flex-grow: 1;
+            }
+            
+            .modal-header {
+                flex-shrink: 0;
+                padding: 1rem !important;
+            }
+            
+            .modal-footer {
+                flex-shrink: 0;
+                padding: 1rem !important;
+            }
+            
+            .modal-header h3 {
+                font-size: 1.25rem !important;
+            }
+        }
     </style>
 </head>
 <body class="gradient-bg">
@@ -253,10 +282,10 @@
     <div id="termsModal" class="fixed inset-0 z-50 hidden">
         <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm" onclick="closeTermsModal()"></div>
         <div class="fixed inset-0 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-jmc-lg max-w-4xl w-full relative">
-                <div class="flex justify-between items-center p-6 border-b border-gray-200">
+            <div class="bg-white rounded-2xl shadow-jmc-lg max-w-4xl w-full relative modal-container">
+                <div class="flex justify-between items-center p-6 border-b border-gray-200 modal-header">
                     <h3 class="text-2xl font-bold text-jmc-dark-gray text-center flex-1">Terms and Conditions</h3>
-                    <button onclick="closeTermsModal()" class="text-gray-400 hover:text-gray-600 transition-colors ml-4">
+                    <button onclick="closeTermsModal()" class="text-gray-400 hover:text-gray-600 transition-colors ml-4 flex-shrink-0">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -287,7 +316,7 @@
                         <p class="text-gray-700 mb-4">You have the right to access, correct, or request deletion of your personal data.</p>
                     </div>
                 </div>
-                <div class="p-6 border-t border-gray-200 bg-gray-50 rounded-b-2xl">
+                <div class="p-6 border-t border-gray-200 bg-gray-50 rounded-b-2xl modal-footer">
                     <div class="flex justify-end space-x-4">
                         <button onclick="closeTermsModal()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">
                             Close
